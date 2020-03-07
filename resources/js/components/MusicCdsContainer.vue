@@ -3,13 +3,10 @@
     <div class="container">
         <div class="music-cds-container d-flex justify-content-center align-items-center flex-wrap">
             <!-- inserisco un componente dentro un componente
-                dovrò ciclarlo per disegnare tutti i cds-->
-            <music-cd></music-cd>
-            <music-cd></music-cd>
-            <music-cd></music-cd>
-            <music-cd></music-cd>
-            <music-cd></music-cd>
-            <music-cd></music-cd>
+                dovrò ciclarlo per disegnare tutti i cds
+                prendo cds da ciclare dal array popolata da chiamata axios
+                uso l'attributo :cd per passare come props al componente che lo disegna-->
+            <music-cd v-for="(cd, index) in cds" :key="index" :cd="cd"></music-cd>
         </div>
     </div>
 </template>
@@ -23,7 +20,27 @@ import MusicCd from "./MusicCd";
 export default {
   components: {
     MusicCd
-  }
+    },
+    // data sono i dati che passerò io al v-for per disegnare i cd, è un array vuoto il cui pusherò i cds ricevuti tramite chiamata axios
+    data() {
+        return {
+            cds: [],
+        };
+    },
+    // muonted si usa per creare un componente
+    //faremo chiamata axios per ricevere lista cds
+    mounted() {
+        //usiamo let così a valore soltanto in questa funzione
+        //essendo due funzioni diverse useremo self per tirare i dati fuori dalla chiamata
+        let self = this;
+        //chiamata ajax  in vue -> axios
+        axios
+            .get("https://flynn.boolean.careers/exercises/api/array/music")
+            .then(function(response) {
+                //dot notation -Z dipende dalla struttura del json
+              self.cds = response.data.response;
+            });
+    }
 };
 </script>
 

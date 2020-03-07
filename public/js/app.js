@@ -1903,9 +1903,16 @@ module.exports = {
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MusicCd.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1914,6 +1921,9 @@ module.exports = {
 //
 //
 // qui userò props perchè ricevo dati non sono miei
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["cd"]
+});
 
 /***/ }),
 
@@ -1941,9 +1951,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 // uso data() per passare variabili create da me
 //importo la componente
  //per usare lo script nel componente
@@ -1951,6 +1958,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     MusicCd: _MusicCd__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  // data sono i dati che passerò io al v-for per disegnare i cd, è un array vuoto il cui pusherò i cds ricevuti tramite chiamata axios
+  data: function data() {
+    return {
+      cds: []
+    };
+  },
+  // muonted si usa per creare un componente
+  //faremo chiamata axios per ricevere lista cds
+  mounted: function mounted() {
+    //usiamo let così a valore soltanto in questa funzione
+    //essendo due funzioni diverse useremo self per tirare i dati fuori dalla chiamata
+    var self = this; //chiamata ajax  in vue -> axios
+
+    axios.get("https://flynn.boolean.careers/exercises/api/array/music").then(function (response) {
+      //dot notation -Z dipende dalla struttura del json
+      self.cds = response.data.response;
+    });
   }
 });
 
@@ -6606,7 +6631,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".music-cd {\n  background-color: #253a4c;\n  min-width: 200px;\n  min-height: 200px;\n  margin: 20px;\n}", ""]);
+exports.push([module.i, ".music-cd {\n  text-align: center;\n  background-color: #253a4c;\n  width: 200px;\n  height: 300px;\n  margin: 20px;\n  padding: 20px;\n  color: white;\n}\n.music-cd img {\n  width: 100%;\n  padding-bottom: 10px;\n}", ""]);
 
 // exports
 
@@ -38225,7 +38250,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "music-cd" })
+  return _c("div", { staticClass: "music-cd" }, [
+    _c("img", { attrs: { src: _vm.cd.poster, alt: _vm.cd.title } }),
+    _vm._v(" "),
+    _c("p", [_c("strong", [_vm._v(" " + _vm._s(_vm.cd.title) + " ")])]),
+    _vm._v(" "),
+    _c("p", [_c("em", [_vm._v(" " + _vm._s(_vm.cd.author) + " ")])]),
+    _vm._v(" "),
+    _c("p", [_vm._v(" " + _vm._s(_vm.cd.year) + " ")])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38256,19 +38289,9 @@ var render = function() {
         staticClass:
           "music-cds-container d-flex justify-content-center align-items-center flex-wrap"
       },
-      [
-        _c("music-cd"),
-        _vm._v(" "),
-        _c("music-cd"),
-        _vm._v(" "),
-        _c("music-cd"),
-        _vm._v(" "),
-        _c("music-cd"),
-        _vm._v(" "),
-        _c("music-cd"),
-        _vm._v(" "),
-        _c("music-cd")
-      ],
+      _vm._l(_vm.cds, function(cd, index) {
+        return _c("music-cd", { key: index, attrs: { cd: cd } })
+      }),
       1
     )
   ])
@@ -53618,9 +53641,7 @@ component.options.__file = "resources/js/components/MusicCd.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicCd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./MusicCd.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MusicCd.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicCd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicCd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicCd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicCd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicCd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicCd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
