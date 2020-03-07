@@ -2023,6 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // uso data() per passare variabili create da me
 // inseriro data da passare a ciclo v-for su li
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6669,7 +6670,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".music-header {\n  background-color: #253a4c;\n  height: 70px;\n  line-height: 70px;\n  color: white;\n  font-size: 20px;\n}\n.music-header strong {\n  text-transform: uppercase;\n}\n.music-header ul {\n  list-style: none;\n  text-align: right;\n}\n.music-header ul li {\n  display: inline-block;\n  margin: 0 20px;\n}\n.music-header ul li a {\n  color: white;\n}", ""]);
+exports.push([module.i, ".music-header {\n  background-color: #253a4c;\n  height: 70px;\n  line-height: 70px;\n  font-size: 20px;\n}\n.music-header a {\n  text-decoration: none;\n  color: white;\n}\n.music-header .col-logo strong {\n  text-transform: uppercase;\n}\n.music-header .sticky-menu {\n  position: relative;\n  color: white;\n}\n.music-header .sticky-menu ul {\n  display: none;\n  background-color: #3f617f;\n  position: absolute;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  right: 25px;\n}\n.music-header .sticky-menu ul.active {\n  display: block;\n}\n.music-header .sticky-menu ul li {\n  display: list-item;\n  margin: 0 20px;\n}\n.music-header .sticky-menu span {\n  padding: 20px;\n}\n.music-header .col-menu {\n  display: none;\n  color: white;\n}\n.music-header .col-menu ul {\n  list-style: none;\n}\n.music-header .col-menu ul li {\n  display: inline-block;\n  margin: 0 20px;\n}\n@media (min-width: 992px) {\n.sticky-menu {\n    display: none;\n}\n.col-menu {\n    display: block;\n}\n}", ""]);
 
 // exports
 
@@ -38323,7 +38324,9 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "sticky-menu d-none" }, [
+        _c("div", { staticClass: "sticky-menu col text-right" }, [
+          _vm._m(1),
+          _vm._v(" "),
           _c(
             "ul",
             _vm._l(_vm.links, function(link, index) {
@@ -38337,7 +38340,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "col-menu col text-right" }, [
           _c(
             "ul",
             _vm._l(_vm.links, function(link, index) {
@@ -38359,9 +38362,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("span", [_c("strong", [_vm._v("Music Playlist")])])
+    return _c("div", { staticClass: "col-logo col-6" }, [
+      _c("span", [
+        _c("strong", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Music Playlist")])
+        ])
+      ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [_c("i", { staticClass: "fas fa-bars" })])
   }
 ]
 render._withStripped = true
@@ -53543,6 +53556,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   }
 });
 /* harmony default export */ __webpack_exports__["default"] = (app);
+$(document).ready(function () {
+  $('.sticky-menu span').click(function () {
+    $('.sticky-menu').find('ul').toggleClass('active');
+  });
+});
 
 /***/ }),
 

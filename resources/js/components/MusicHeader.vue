@@ -3,17 +3,18 @@
     <div class="music-header sticky-top">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <span><strong>Music Playlist</strong></span>
+                <div class="col-logo col-6">
+                    <span><strong><a href="#">Music Playlist</a></strong></span>
                 </div>
-                <div class="sticky-menu d-none">
+                <div class="sticky-menu col text-right">
+                    <span><i class="fas fa-bars"></i></span>
                     <ul>
                         <li v-for="(link, index) in links" :key="index">
                             <a :href="link.href">{{ link.title }}</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-8">
+                <div class="col-menu col text-right">
                     <ul>
                         <!-- v-for per ciclo for in vue
                             uso la formula "singolare in plurale"
@@ -58,21 +59,60 @@ data() {
         background-color: lighten($backgound-color, 5%);
         height: $headerHeight;
         line-height: $headerHeight;
-        color: $header-font-color;
         font-size: 20px;
-        strong {
-            text-transform: uppercase;
+        a {
+            text-decoration: none;
+            color: $header-font-color;
         }
-        ul {
-            list-style: none;
-            text-align: right;
-            li {
-                display: inline-block;
-                margin: 0 20px;
-                a {
-                    color: $header-font-color;
+        .col-logo {
+            strong {
+                text-transform: uppercase;
+            }
+        }
+        .sticky-menu {
+            position: relative;
+            color: $header-font-color;
+            ul {
+                &.active {
+                    display:block;
+                }
+                display: none;
+                background-color: lighten($backgound-color, 20%);
+                position: absolute;
+                width: max-content;
+                list-style: none;
+                padding: 0;
+                margin:0;
+                right: 25px;
+                li {
+                    display: list-item;
+                    margin: 0 20px;
                 }
             }
+            span{
+                padding: 20px;
+            }
+
+        }
+        .col-menu {
+            display: none;
+            color: $header-font-color;
+            ul {
+                list-style: none;
+                li {
+                    display: inline-block;
+                    margin: 0 20px;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 992px) {
+        .sticky-menu {
+            display:none;
+        }
+        .col-menu {
+            display: block;
         }
     }
 

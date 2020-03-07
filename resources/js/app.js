@@ -18,3 +18,9 @@ const app = new Vue({
 });
 
 export default app;
+
+$( document ).ready(function() {
+    $('.sticky-menu span').click(function(){
+        $('.sticky-menu').find('ul').toggleClass('active');
+    });
+});
