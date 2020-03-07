@@ -4,12 +4,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <span>Music Playlist</span>
+                    <span><strong>Music Playlist</strong></span>
                 </div>
                 <div class="col-sm-8">
                     <ul>
-                        <li>Home</li>
-                        <li>About us</li>
+                        <!-- v-for per ciclo for in vue
+                            uso la formula "singolare in plurale"
+                            gli passo index e @key per evitare errore di compilazione
+                        ( prende i dati da data() in script )-->
+                        <li v-for="(link, index) in links" :key="index">
+                            <!-- usiamo :href per specificare che el contiene una variabile -->
+                            <a :href="link.href">{{ link.title }}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -21,6 +27,16 @@
 <script>
 // uso data() per passare variabili create da me
 // inseriro data da passare a ciclo v-for su li
+export default {
+data() {
+    return {
+        links: [
+            { href: 'home', title: 'Home'},
+            { href: 'about-us', title: 'About us'}
+        ]
+    }
+}
+}
 
 </script>
 
@@ -31,17 +47,25 @@
 <style lang="scss">
 
     $headerHeight: 70px;
+    $font-color: white;
     .music-header {
         background: lighten(#1d2d3b, 5%);
         height: $headerHeight;
         line-height: $headerHeight;
-        color: white;
+        color: $font-color;
+        font-size: 20px;
+        strong {
+            text-transform: uppercase;
+        }
         ul {
-            display: inline;
             list-style: none;
             text-align: right;
             li {
                 display: inline-block;
+                margin: 0 15px;
+                a{
+                    color: $font-color;
+                }
             }
         }
     }

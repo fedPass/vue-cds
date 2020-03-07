@@ -7,7 +7,7 @@
         - in ogni components.vue vado a definire template, script e style
         - importo i file dei componenti
             import MusicHeader from "../components/MusicHeader";
-        - ???
+        - faccio export per attivare lo script del componente
             export default {
               components: {
                 MusicHeader
@@ -24,10 +24,12 @@
 <script>
 // importo i file dei componenti
 import MusicHeader from "../components/MusicHeader";
-
+import MusicCdsContainer from "../components/MusicCdsContainer";
+//serve per usare lo script nel componente
 export default {
   components: {
-    MusicHeader
+    MusicHeader,
+    MusicCdsContainer
   }
 };
 </script>
