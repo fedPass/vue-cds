@@ -39,9 +39,11 @@ export default {
     attributo lang gli dico che linguaggio sto usando
 -->
 <style lang="scss">
+    // importo il fiel con le variabili
+    @import "../../sass/_variables";
     .music-container {
         width: 100vw;
-        height: 100vh;
-        background-color: #1d2d3b;
+        height: 100%;
+        background-color: $backgound-color;
     }
 </style>

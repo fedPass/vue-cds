@@ -1,12 +1,19 @@
 <template>
     <!-- template può avere solo un figlio, al suo interno scrivo struttura html-->
-    <div class="music-header">
+    <div class="music-header sticky-top">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-md-4">
                     <span><strong>Music Playlist</strong></span>
                 </div>
-                <div class="col-sm-8">
+                <div class="sticky-menu d-none">
+                    <ul>
+                        <li v-for="(link, index) in links" :key="index">
+                            <a :href="link.href">{{ link.title }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-8">
                     <ul>
                         <!-- v-for per ciclo for in vue
                             uso la formula "singolare in plurale"
@@ -45,14 +52,13 @@ data() {
     attributo lang gli dico che linguaggio sto usando
 -->
 <style lang="scss">
-
-    $headerHeight: 70px;
-    $font-color: white;
+    //importo il file scss con le variabili
+    @import "../../sass/_variables";
     .music-header {
-        background: lighten(#1d2d3b, 5%);
+        background-color: lighten($backgound-color, 5%);
         height: $headerHeight;
         line-height: $headerHeight;
-        color: $font-color;
+        color: $header-font-color;
         font-size: 20px;
         strong {
             text-transform: uppercase;
@@ -62,9 +68,9 @@ data() {
             text-align: right;
             li {
                 display: inline-block;
-                margin: 0 15px;
-                a{
-                    color: $font-color;
+                margin: 0 20px;
+                a {
+                    color: $header-font-color;
                 }
             }
         }

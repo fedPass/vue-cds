@@ -1,7 +1,6 @@
 <template>
     <!-- template può avere solo un figlio, al suo interno scrivo struttura html-->
-    <div class="">
-
+    <div class="music-cd">
     </div>
 </template>
 
@@ -16,5 +15,12 @@
     attributo lang gli dico che linguaggio sto usando
 -->
 <style lang="scss">
-
+    //importo il file scss con le variabili
+    @import "../../sass/_variables";
+    .music-cd {
+        background-color: lighten($backgound-color, 5%);
+        min-width: 200px;
+        min-height: 200px;
+        margin: 20px;
+    }
 </style>
